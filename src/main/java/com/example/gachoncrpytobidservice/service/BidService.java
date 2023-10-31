@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Transactional
@@ -14,12 +13,12 @@ import java.util.stream.Collectors;
 public class BidService {
     private final StringRedisTemplate stringRedisTemplate;
 
-    public int getCurrentBidPrice(){
+    public int getCurrentBidPrice() {
         String currentBidPriceString = getCurrentBidPriceString();
         return Integer.parseInt(currentBidPriceString);
     }
 
-    private String getCurrentBidPriceString(){
+    private String getCurrentBidPriceString() {
         return getKeysByPattern("*").stream()
                 .max(String::compareTo)
                 .get();

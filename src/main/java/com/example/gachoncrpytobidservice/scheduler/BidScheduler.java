@@ -8,8 +8,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Slf4j
 @RequiredArgsConstructor
 @Component
@@ -17,6 +15,7 @@ import java.util.List;
 @EnableScheduling
 public class BidScheduler {
     private final BidService bidService;
+
     @Scheduled(fixedDelay = 1000)
     public void bidScheduleTask() {
         System.out.println(bidService.getCurrentBidPrice());
