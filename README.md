@@ -1,0 +1,1 @@
+# bid-bot-service
